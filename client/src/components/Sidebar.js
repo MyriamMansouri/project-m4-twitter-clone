@@ -7,36 +7,10 @@ import { Home, User, Bell, Bookmark } from "../assets/Icons";
 import styled from "styled-components";
 import { COLORS } from "./constant";
 
-const SidebarWrapper = styled.div`
+import { CurrentUserContext } from "./CurrentUserContext";
 
-  margin: 20px 70px;
-  font-weight: bold;
-  & > * {
-    margin: 20px 0;
-  }
-`;
-
-const NavigationLink = styled(NavLink)`
-  display: inline-block;
-  padding: 10px 15px;
-  border-radius: 30px;
-  &:hover {
-    color: ${COLORS.primary};
-    background-color: ${COLORS.primrayLight};
-  }
-  &.active {
-    color: ${COLORS.primary};
-  }
-`;
-
-const LinkTitle = styled.span`
-  margin-left: 15px;
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-const Sidebar = ({ id }) => {
+const Sidebar = () => {
+  const { id } = React.useContext(CurrentUserContext);
   return (
     <SidebarWrapper>
       <Logo />
@@ -71,5 +45,33 @@ const Sidebar = ({ id }) => {
     </SidebarWrapper>
   );
 };
+
+const SidebarWrapper = styled.div`
+  margin: 20px 70px;
+  font-weight: bold;
+  & > * {
+    margin: 20px 0;
+  }
+`;
+
+const NavigationLink = styled(NavLink)`
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 30px;
+  &:hover {
+    color: ${COLORS.primary};
+    background-color: ${COLORS.primrayLight};
+  }
+  &.active {
+    color: ${COLORS.primary};
+  }
+`;
+
+const LinkTitle = styled.span`
+  margin-left: 15px;
+  &:hover {
+    opacity: 1;
+  }
+`;
 
 export default Sidebar;
