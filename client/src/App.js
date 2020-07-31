@@ -1,7 +1,6 @@
 import React from "react";
 
 import Routes from "./components/Routes";
-import { CurrentUserProvider } from "./components/CurrentUserContext";
 
 import styled from "styled-components";
 
@@ -13,9 +12,7 @@ const AppWrapper = styled.div`
 function App() {
   return (
     <AppWrapper>
-      <CurrentUserProvider>
-        <Routes />
-      </CurrentUserProvider>
+      <Routes />
     </AppWrapper>
   );
 }

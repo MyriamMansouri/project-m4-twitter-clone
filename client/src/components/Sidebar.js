@@ -1,5 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink , useParams} from "react-router-dom";
+
+import { CurrentUserContext, } from "./CurrentUserContext";
 
 import Logo from "../assets/Logo";
 import { Home, User, Bell, Bookmark } from "../assets/Icons";
@@ -7,10 +9,9 @@ import { Home, User, Bell, Bookmark } from "../assets/Icons";
 import styled from "styled-components";
 import { COLORS } from "./constant";
 
-import { CurrentUserContext } from "./CurrentUserContext";
-
 const Sidebar = () => {
-  const { id } = React.useContext(CurrentUserContext);
+  const { currentUser } = React.useContext(CurrentUserContext);
+  const { handle } = currentUser
   return (
     <SidebarWrapper>
       <Logo />
@@ -22,7 +23,7 @@ const Sidebar = () => {
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink to={`/${id}`}>
+          <NavigationLink to={`/${handle}`}>
             <User />
             <LinkTitle>Profile</LinkTitle>
           </NavigationLink>

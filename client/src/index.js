@@ -1,12 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 import GlobalStyles from "./GlobalStyles";
+import { CurrentUserProvider } from "./components/CurrentUserContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyles/>
-    <App />
+    <GlobalStyles />
+    <CurrentUserProvider>
+      <App />
+    </CurrentUserProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
