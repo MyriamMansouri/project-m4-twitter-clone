@@ -1,13 +1,14 @@
 import React from "react";
-import { NavLink , useParams} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 import { CurrentUserContext, } from "./CurrentUserContext";
-
+import Button from "./Button";
 import Logo from "../assets/Logo";
 import { Home, User, Bell, Bookmark } from "../assets/Icons";
 
 import styled from "styled-components";
-import { COLORS } from "./constant";
+import { STYLE } from "./constant";
+
 
 const Sidebar = () => {
   const { currentUser } = React.useContext(CurrentUserContext);
@@ -41,8 +42,7 @@ const Sidebar = () => {
           </NavigationLink>
         </li>
       </ul>
-
-      <button>Meow</button>
+    <Button fullLength >Meow</Button>
     </SidebarWrapper>
   );
 };
@@ -58,13 +58,13 @@ const SidebarWrapper = styled.div`
 const NavigationLink = styled(NavLink)`
   display: inline-block;
   padding: 10px 15px;
-  border-radius: 30px;
+  border-radius: ${STYLE.borderRadius};
   &:hover {
-    color: ${COLORS.primary};
-    background-color: ${COLORS.primrayLight};
+    color: ${STYLE.primary};
+    background-color: ${STYLE.primaryLight};
   }
   &.active {
-    color: ${COLORS.primary};
+    color: ${STYLE.primary};
   }
 `;
 

@@ -12,7 +12,6 @@ export const CurrentUserProvider = ({ children }) => {
       .then((data) => {
         setCurrentUser(data.profile);
         setStatus("idle")
-        console.log(data)
       });
   }, []);
 
