@@ -2,12 +2,12 @@ import React from "react";
 import { NavLink} from "react-router-dom";
 
 import { CurrentUserContext, } from "./CurrentUserContext";
-import Button from "./Button";
+import Button from "./misc/Button";
 import Logo from "../assets/Logo";
 import { Home, User, Bell, Bookmark } from "../assets/Icons";
 
 import styled from "styled-components";
-import { STYLE } from "./constant";
+import { STYLE, BORDER } from "./misc/constant";
 
 
 const Sidebar = () => {
@@ -42,14 +42,15 @@ const Sidebar = () => {
           </NavigationLink>
         </li>
       </ul>
-    <Button fullLength >Meow</Button>
+    <Button fullWidth >Meow</Button>
     </SidebarWrapper>
   );
 };
 
 const SidebarWrapper = styled.div`
-  margin: 20px 70px;
+  padding-right:70px;
   font-weight: bold;
+  border-right: ${BORDER};
   & > * {
     margin: 20px 0;
   }

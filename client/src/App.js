@@ -5,8 +5,11 @@ import Routes from "./components/Routes";
 import styled from "styled-components";
 
 const AppWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   display: grid;
-  grid-template-columns: minmax(350px, 1fr) minmax(min-content, 3fr);
+  grid-template-columns: 290px minmax(min-content, 580px);
+  margin: 0 auto;
 `;
 
 function App() {
