@@ -8,8 +8,6 @@ export const TweetProvider = ({ tweet, children }) => {
   const [numRetweets, setNumRetweets] = React.useState(tweet.numRetweets);
   const [isLiked, setIsLiked] = React.useState(tweet.isLiked);
   const [isRetweeted, setIsRetweeted] = React.useState(tweet.isRetweeted);
-
-  console.log(tweet)
   
   const handleToggleLike = () => {
     if (!isLiked) {

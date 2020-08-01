@@ -7,7 +7,7 @@ import PoppingCircle from "./PoppingCircle";
 import { TweetContext } from "../Tweet/TweetContext";
 import ScaleIn from "./ScaleIn";
 
-const LikeButton = ({ size = 40 }) => {
+const LikeButton = ({ size = 35 }) => {
   const heartSize = size * 0.6;
   const { isLikedByCurrentUser } = React.useContext(TweetContext);
 
