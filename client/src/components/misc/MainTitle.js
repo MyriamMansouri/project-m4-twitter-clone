@@ -5,7 +5,7 @@ import { STYLE, BORDER } from "./constant";
 
 const TitleWrapper = styled.h1`
   font-weight: bold;
-  font-size: ${STYLE.mainTitleFontSize};
+  font-size: ${STYLE.bigFontSize};
   padding: ${STYLE.spacingTweet};
   border-bottom: ${BORDER};
 `;

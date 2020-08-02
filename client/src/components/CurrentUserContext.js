@@ -2,7 +2,6 @@ import React from "react";
 
 export const CurrentUserContext = React.createContext(null);
 
-
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = React.useState(null);
   const [status, setStatus] = React.useState("loading");
@@ -14,6 +13,7 @@ export const CurrentUserProvider = ({ children }) => {
         const data =  await res.json();
         setCurrentUser(data.profile);
         setStatus("idle");
+        console.log(data.profile)
       }
       fetchData()
 

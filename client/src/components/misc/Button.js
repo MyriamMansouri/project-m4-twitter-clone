@@ -6,7 +6,8 @@ import { STYLE } from "./constant";
 const Btn = styled(UnstyledButton)`
   background-color: ${STYLE.primary};
   color: white;
-  padding: 12px 20px;
+  padding: 0 20px;
+  height:40px;
   font-weight: bold;
   border-radius: ${STYLE.borderRadius};
   text-align: center;

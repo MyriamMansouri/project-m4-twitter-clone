@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 `;
 
 export const TweetContents = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: ${STYLE.marginBottom};
   font-size: 1rem;
   line-height: 1.3;
   word-break: break-all;

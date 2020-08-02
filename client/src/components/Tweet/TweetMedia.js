@@ -18,5 +18,6 @@ const MediaPlaceHolder = styled.div`
   height: 370px;
   background: transparent no-repeat center;
   background-size: cover;
+  margin-bottom:${STYLE.marginBottom};
 `;
 export default TweetMedia;

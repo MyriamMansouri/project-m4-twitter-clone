@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./Header";
 import ActionBar from "./ActionBar";
 import TweetMedia from "./TweetMedia";
-import Avatar from "./Avatar";
+import Avatar from "../misc/Avatar";
 import RetweetFrom from "./RetweetFrom";
 
 import { TweetContext } from "./TweetContext";

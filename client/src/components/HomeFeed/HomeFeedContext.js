@@ -4,7 +4,7 @@ export const HomeFeedContext = React.createContext(null);
 
 
 export const HomeFeedProvider = ({ children }) => {
-  const [homeFeed, setHomeFeed] = React.useState(null);
+  const [tweetList, setTweetList] = React.useState(null);
   const [status, setStatus] = React.useState("loading");
 
   React.useEffect(() => {
@@ -12,7 +12,7 @@ export const HomeFeedProvider = ({ children }) => {
       const fetchData = async () => {
         const res = await fetch("/api/me/home-feed");
         const data =  await res.json();
-        setHomeFeed(data);
+        setTweetList(data);
         setStatus("idle");
       }
       fetchData()
@@ -23,7 +23,7 @@ export const HomeFeedProvider = ({ children }) => {
   }, []);
 
   return (
-    <HomeFeedContext.Provider value={{ homeFeed, status }}>
+    <HomeFeedContext.Provider value={{ tweetList, status }}>
       {children}
     </HomeFeedContext.Provider>
   );

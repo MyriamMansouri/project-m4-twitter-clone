@@ -47,7 +47,7 @@ const Sidebar = () => {
   );
 };
 
-const SidebarWrapper = styled.div`
+const SidebarWrapper = styled.aside`
   padding-right:70px;
   font-weight: bold;
   border-right: ${BORDER};

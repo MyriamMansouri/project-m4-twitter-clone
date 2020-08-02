@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Sidebar from "./Sidebar";
+import HomeFeed from "./HomeFeed/HomeFeed";
 import Notifications from "./Notifications";
 import Bookmarks from "./Bookmarks";
 import TweetDetails from "./TweetDetails";
-import Profile from "./Profile";
-import HomeFeed from "./HomeFeed/HomeFeed";
+import Profile from "./Profile/Profile";
+
 
 import { CurrentUserContext } from "./CurrentUserContext";
 import { HomeFeedProvider } from "../components/HomeFeed/HomeFeedContext";
+import { ProfileProvider } from "../components/Profile/ProfileContext";
 
 const Routes = () => {
   const { status } = React.useContext(CurrentUserContext);
@@ -34,8 +37,10 @@ const Routes = () => {
         <Route path="/tweet/:tweetId">
           <TweetDetails />
         </Route>
-        <Route path={`/:profileId`}>
-          <Profile />
+        <Route path='/:profileId'>
+          <ProfileProvider>
+            <Profile />
+          </ProfileProvider>
         </Route>
       </Switch>
     </Router>

@@ -11,11 +11,15 @@ export const STYLE = {
     neutralLight : "hsl(0deg, 0%, 90%)", 
     // Error
     errorColor: 'red',
+
     borderRadius: '30px', // used for buttons
-    mainTitleFontSize : '1.2rem',
+    bigFontSize : '1.2rem',
+    smallFontSize : '0.93rem',
     //Tweet styling
     borderRadiusTweet: '20px',
+    //Generic values for spacing elements
     spacingTweet: '15px',
+    marginBottom: '10px'
   };
 
 export const ICON = {

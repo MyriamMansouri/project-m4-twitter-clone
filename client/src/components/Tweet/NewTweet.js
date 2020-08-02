@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Avatar from "./Avatar";
+import Avatar from "../misc/Avatar";
 import Button from "../misc/Button";
 import {
   TweetWrapper,
@@ -16,7 +16,7 @@ import { STYLE } from "../misc/constant";
 
 const NewTweet = () => {
   const { currentUser } = React.useContext(CurrentUserContext);
-  
+
   const MAX_CHAR = 280;
 
   const [remainingCharacters, setRemainingCharacters] = React.useState(
@@ -106,12 +106,14 @@ const NewTweetWrapper = styled(TweetWrapper)`
 `;
 
 const BtnAreaWrapper = styled.div`
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
 
-const CharWrapper=styled.span`
-margin-right:${STYLE.spacingTweet}
-`
+const CharWrapper = styled.span`
+  margin-right: ${STYLE.spacingTweet};
+  font-size: 0.8rem;
+  color: ${STYLE.neutral};
+`;
 export default NewTweet;
