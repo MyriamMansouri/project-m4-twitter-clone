@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { TweetContext } from "./TweetContext";
 
 const Image = styled.img`
   width: 48px;
@@ -8,9 +7,7 @@ const Image = styled.img`
   border-radius: 50%;
 `;
 
-const Avatar = () => {
-  const { avatarSrc } = React.useContext(TweetContext);
-
+const Avatar = ({avatarSrc}) => {
   return <Image src={avatarSrc} />;
 };
 

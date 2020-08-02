@@ -1,6 +1,6 @@
 import React from "react";
 import HomeFeedDetails from "./HomeFeedDetails";
-import NewTweet from '../NewTweet/NewTweet'
+import NewTweet from '../Tweet/NewTweet'
 import { HomeFeedContext } from "./HomeFeedContext";
 import MainTitle from "../misc/MainTitle";
 

@@ -5,18 +5,25 @@ import { STYLE } from "./constant";
 
 const Btn = styled(UnstyledButton)`
   background-color: ${STYLE.primary};
-  font-size:1.1rem;
   color: white;
-  padding: 15px 20px;
+  padding: 12px 20px;
   font-weight: bold;
   border-radius: ${STYLE.borderRadius};
-  text-align:center;
+  text-align: center;
   &:hover {
     background-color: ${STYLE.primaryDark};
   }
+  &.disabled {
+    cursor: default;
+    background-color: ${STYLE.primaryLight};
+  }
 `;
-const Button = ({ fullWidth, children }) => {
-  return <Btn style={fullWidth ? { width: "100%" } : null}>{children}</Btn>;
+const Button = ({ fullWidth, disabled, children }) => {
+  return (
+    <Btn disabled={disabled} style={fullWidth ? { width: "100%" } : null} className={disabled ? 'disabled' : null}>
+      {children}
+    </Btn>
+  );
 };
 
 export default Button;

@@ -3,11 +3,14 @@
 export const STYLE = {
     // Bright purple:
     primary: "hsl(258deg, 100%, 50%)",
-    primaryLight: "hsl(258deg, 100%, 95%)",
+    primaryLighter: "hsl(258deg, 100%, 96%)",
+    primaryLight: "hsl(258deg, 100%, 93%)",
     primaryDark: "hsl(258deg, 100%, 40%)",
     // Grey
     neutral : "hsl(0deg, 0%, 40%)", // light grey
     neutralLight : "hsl(0deg, 0%, 90%)", 
+    // Error
+    errorColor: 'red',
     borderRadius: '30px', // used for buttons
     mainTitleFontSize : '1.2rem',
     //Tweet styling

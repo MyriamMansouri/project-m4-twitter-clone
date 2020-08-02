@@ -62,7 +62,7 @@ const NavigationLink = styled(NavLink)`
   border-radius: ${STYLE.borderRadius};
   &:hover {
     color: ${STYLE.primary};
-    background-color: ${STYLE.primaryLight};
+    background-color: ${STYLE.primaryLighter};
   }
   &.active {
     color: ${STYLE.primary};

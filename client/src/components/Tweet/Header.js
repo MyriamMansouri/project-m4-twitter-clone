@@ -23,6 +23,7 @@ const Header = () => {
 
 const Wrapper = styled.header`
   display: flex;
+  margin-bottom:10px;
 `;
 
 
