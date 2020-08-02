@@ -1,19 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { TweetContext } from "./TweetContext";
 import Timestamp from "./Timestamp";
 import Handle from "../misc/Handle";
 
-import {STYLE } from '../misc/constant'
+import { STYLE } from "../misc/constant";
 
 const Header = () => {
   const { displayName, username } = React.useContext(TweetContext);
 
   return (
     <Wrapper>
-      <DisplayName>{displayName}</DisplayName>
-      <Handle username = {username}></Handle>
+      <DisplayName>
+        <Link to={`/${username}`}>{displayName}</Link>
+      </DisplayName>
+      <Handle username={username}></Handle>
       &middot;
       <Timestamp />
     </Wrapper>
@@ -29,8 +32,9 @@ const DisplayName = styled.span`
   margin-right: 6px;
   font-size: ${STYLE.smallFontSize};
   font-weight: bold;
+  &:hover {
+    text-decoration:underline;
+  }
 `;
-
-
 
 export default Header;
