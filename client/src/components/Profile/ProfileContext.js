@@ -14,18 +14,22 @@ export const ProfileProvider = ({ children }) => {
     try {
       const fetchData = async () => {
         const feed = await fetch(`/api/${profileId}/feed`);
-        const profile = await fetch(`/api/${profileId}/profile`);
         const feedData =  await feed.json();
+        const profile = await fetch(`/api/${profileId}/profile`);
         const profileData =  await profile.json();
-        setTweetList(feedData);
-        setUser(profileData.profile)
-        setStatus("idle");
-        console.log(profileData)
+        
+        if (feed.ok  && profile.ok ) {
+          setTweetList(feedData);
+          setUser(profileData.profile)
+          setStatus("idle");
+        } else {
+          throw new Error()
+        }     
       }
       fetchData()
 
     } catch(err) {
-      console.log(err);
+      setStatus('error')
     }
   }, [profileId]);
 

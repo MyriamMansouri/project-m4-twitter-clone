@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import { CurrentUserContext, } from "./CurrentUserContext";
+import { CurrentUserContext } from "./CurrentUserContext";
 import Button from "./misc/Button";
 import Logo from "../assets/Logo";
 import { Home, User, Bell, Bookmark } from "../assets/Icons";
@@ -9,10 +9,9 @@ import { Home, User, Bell, Bookmark } from "../assets/Icons";
 import styled from "styled-components";
 import { STYLE, BORDER } from "./misc/constant";
 
-
 const Sidebar = () => {
   const { currentUser } = React.useContext(CurrentUserContext);
-  const { handle } = currentUser
+
   return (
     <SidebarWrapper>
       <Logo />
@@ -24,31 +23,31 @@ const Sidebar = () => {
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink to={`/${handle}`}>
+          <NavigationLink exact to={`/${currentUser ? currentUser.handle : ''}`}>
             <User />
             <LinkTitle>Profile</LinkTitle>
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink to="/notifications">
+          <NavigationLink exact to="/notifications">
             <Bell />
             <LinkTitle>Notifications</LinkTitle>
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink to="/bookmarks">
+          <NavigationLink exact to="/bookmarks">
             <Bookmark />
             <LinkTitle>Bookmarks</LinkTitle>
           </NavigationLink>
         </li>
       </ul>
-    <Button fullWidth >Meow</Button>
+      <Button fullWidth>Meow</Button>
     </SidebarWrapper>
   );
 };
 
 const SidebarWrapper = styled.aside`
-  padding-right:70px;
+  padding-right: 70px;
   font-weight: bold;
   border-right: ${BORDER};
   & > * {

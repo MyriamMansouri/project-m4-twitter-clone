@@ -14,7 +14,9 @@ const Header = () => {
   return (
     <Wrapper>
       <DisplayName>
-        <Link to={`/${username}`}>{displayName}</Link>
+        <Link to={`/${username}`} onClick={(e) => e.stopPropagation()}>
+          {displayName}
+        </Link>
       </DisplayName>
       <Handle username={username}></Handle>
       &middot;
@@ -26,14 +28,17 @@ const Header = () => {
 const Wrapper = styled.header`
   display: flex;
   margin-bottom: ${STYLE.marginBottom};
+  z-index:0;
 `;
 
 const DisplayName = styled.span`
   margin-right: 6px;
   font-size: ${STYLE.smallFontSize};
   font-weight: bold;
+  position: relative;
+  z-index: 1;
   &:hover {
-    text-decoration:underline;
+    text-decoration: underline;
   }
 `;
 

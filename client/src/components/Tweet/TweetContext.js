@@ -8,7 +8,7 @@ export const TweetProvider = ({ tweet, children }) => {
   const [numRetweets, setNumRetweets] = React.useState(tweet.numRetweets);
   const [isLiked, setIsLiked] = React.useState(tweet.isLiked);
   const [isRetweeted, setIsRetweeted] = React.useState(tweet.isRetweeted);
-  
+
   const handleToggleLike = () => {
     if (!isLiked) {
       setNumLikes(numLikes + 1);
@@ -31,6 +31,7 @@ export const TweetProvider = ({ tweet, children }) => {
     <TweetContext.Provider
       value={{
         status: tweet.status,
+        tweetId : tweet.id,
         displayName: tweet.author.displayName,
         username: tweet.author.handle,
         avatarSrc: tweet.author.avatarSrc,

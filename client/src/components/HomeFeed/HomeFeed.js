@@ -4,6 +4,7 @@ import { HomeFeedContext } from "./HomeFeedContext";
 import MainTitle from "../misc/MainTitle";
 import NewTweet from "../Tweet/NewTweet";
 import TweetDetails from "../Tweet/TweetDetails";
+import ErrorPage from '../ErrorPage'
 
 import styled from "styled-components";
 import { BORDER } from "../misc/constant";
@@ -17,9 +18,15 @@ const HomeFeed = () => {
     <SectionWrapper>
       <MainTitle>Home</MainTitle>
       <NewTweet />
-      {status === "loading" ? "loading" : <TweetDetails tweetList={tweetList} />}
-    </SectionWrapper>
-  );
+      {
+        {
+          'loading':'loading',
+          'error': <ErrorPage />,
+          'idle': <TweetDetails tweetList={tweetList} />
+        }[status]
+      }
+
+  </SectionWrapper>)
 };
 
 export default HomeFeed;

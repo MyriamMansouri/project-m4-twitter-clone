@@ -7,19 +7,13 @@ export const CurrentUserProvider = ({ children }) => {
   const [status, setStatus] = React.useState("loading");
 
   React.useEffect(() => {
-    try {
-      const fetchData = async () => {
-        const res = await fetch("/api/me/profile");
-        const data =  await res.json();
+    fetch("/api/me/profile")
+      .then((res) => res.json())
+      .then((data) => {
         setCurrentUser(data.profile);
         setStatus("idle");
-        console.log(data.profile)
-      }
-      fetchData()
-
-    } catch(err) {
-      console.log(err);
-    }
+      })
+      .catch((err) => setStatus("error"));
   }, []);
 
   return (

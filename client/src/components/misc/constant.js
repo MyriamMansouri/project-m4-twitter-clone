@@ -15,6 +15,7 @@ export const STYLE = {
     borderRadius: '30px', // used for buttons
     bigFontSize : '1.2rem',
     smallFontSize : '0.93rem',
+    verySmallFontSize : '0.8rem',
     //Tweet styling
     borderRadiusTweet: '20px',
     //Generic values for spacing elements

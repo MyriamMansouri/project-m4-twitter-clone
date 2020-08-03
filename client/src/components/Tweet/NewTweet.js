@@ -9,49 +9,69 @@ import {
   Wrapper,
   TweetContents,
 } from "./TweetWrappers";
-
 import { CurrentUserContext } from "../CurrentUserContext";
+import { HomeFeedContext } from "../HomeFeed/HomeFeedContext";
 
 import { STYLE } from "../misc/constant";
 
 const NewTweet = () => {
-  const { currentUser } = React.useContext(CurrentUserContext);
-
   const MAX_CHAR = 280;
-
+  const { currentUser } = React.useContext(CurrentUserContext);
+  const { setNewTweet } = React.useContext(HomeFeedContext);
   const [remainingCharacters, setRemainingCharacters] = React.useState(
     MAX_CHAR
   );
   const [tweet, setTweet] = React.useState("");
-  const [isError, setIsError] = React.useState(false);
+  const [error, setError] = React.useState(null);
   const [disableBtn, setdisableBtn] = React.useState(true);
+
+  const textInput = React.createRef();
 
   const handleChange = (e) => {
     const text = e.target.value;
-    text.length > 0 ? setdisableBtn(false) : setdisableBtn(true);
+    text.length > 0 && text.length <= MAX_CHAR
+      ? setdisableBtn(false)
+      : setdisableBtn(true);
     setTweet(text);
     setRemainingCharacters(MAX_CHAR - text.length);
   };
 
-  const handleSubmit = async (e) => {
-    setdisableBtn(true);
-    e.preventDefault();
-    try {
-      await fetch("/api/tweet", {
-        method: "POST",
-        body: JSON.stringify({ status: tweet }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
-      setTweet("");
-      setRemainingCharacters(MAX_CHAR);
-      setIsError(false);
-    } catch (err) {
-      setdisableBtn(false);
-      setIsError(true);
+  const toggleClass = () => {
+    if (remainingCharacters < 0) {
+      return "red";
+    } else if (remainingCharacters < Math.floor(MAX_CHAR * 0.8)) {
+      return "yellow";
+    } else {
+      return "normal";
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setdisableBtn(true);
+    // focus input again after send button is hit
+    textInput.current.focus();
+
+    fetch("/api/tweet", {
+      method: "POST",
+      body: JSON.stringify({ status: tweet }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setNewTweet(tweet);
+        setTweet("");
+        setRemainingCharacters(MAX_CHAR);
+        setError(null);
+      })
+      .catch((err) => {
+        console.log(err)
+        setdisableBtn(false);
+        setError(err);
+      });
   };
 
   return (
@@ -63,17 +83,23 @@ const NewTweet = () => {
             <TweetContents
               type="text"
               placeholder="What's happening ?"
-              maxLength={MAX_CHAR}
               value={tweet}
               onChange={handleChange}
               autoFocus
               as="textarea"
+              ref={textInput}
             ></TweetContents>
           </Wrapper>
         </FlexWrapper>
         <BtnAreaWrapper>
-          {isError && <Error>Error: try again</Error>}
-          <CharWrapper>{remainingCharacters}</CharWrapper>
+          {error && (
+            <Error>
+              <span role="img" aria-label="error emoji">❌</span> Error : please try again
+            </Error>
+          )}
+          <CharWrapper className={toggleClass()}>
+            {remainingCharacters}
+          </CharWrapper>
           <Button disabled={disableBtn ? true : false}>Meow</Button>
         </BtnAreaWrapper>
       </Form>
@@ -112,8 +138,19 @@ const BtnAreaWrapper = styled.div`
 `;
 
 const CharWrapper = styled.span`
-  margin-right: ${STYLE.spacingTweet};
+  margin: 0 ${STYLE.spacingTweet};
   font-size: 0.8rem;
-  color: ${STYLE.neutral};
+
+  &.normal {
+    color: ${STYLE.neutral};
+  }
+  &.yellow {
+    color: orange;
+    font-weight: 500;
+  }
+  &.red {
+    color: red;
+    font-weight: 500;
+  }
 `;
 export default NewTweet;

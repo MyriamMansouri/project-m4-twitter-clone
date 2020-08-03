@@ -24,7 +24,7 @@ const Wrapper = styled(UnstyledButton)`
   justify-content: center;
   align-items: center;
   outline: none;
-
+  z-index:1;
   &:after {
     content: '';
     position: absolute;
@@ -37,7 +37,7 @@ const Wrapper = styled(UnstyledButton)`
     background-color: ${p => p.circleColor};
   }
 
-  &:hover:after {
+  &:hover:after, &:focus:after {
     opacity: 0.12;
   }
 `;

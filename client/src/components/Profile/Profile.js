@@ -1,12 +1,12 @@
 import React from "react";
 
+import UserInformation from "./UserInformation";
 import { ProfileContext } from "./ProfileContext";
 import MainTitle from "../misc/MainTitle";
 import TweetDetails from "../Tweet/TweetDetails";
 
 import styled from "styled-components";
 import { BORDER } from "../misc/constant";
-import UserInformation from "./UserInformation";
 
 const SectionWrapper = styled.section`
   border-right: ${BORDER};
@@ -20,7 +20,7 @@ const Profile = () => {
         "loading"
       ) : (
         <div>
-          <UserInformation />
+          <UserInformation/>
           <TweetDetails tweetList={tweetList} />
         </div>
       )}
