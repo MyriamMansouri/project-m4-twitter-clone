@@ -4,7 +4,7 @@ import { TweetProvider } from "./TweetContext";
 
 import Tweet from "./Tweet";
 
-const TweetDetails = ({tweetList}) => {
+const TweetList = ({tweetList}) => {
   const { tweetsById, tweetIds } = tweetList;
   return (
     <>
@@ -17,4 +17,4 @@ const TweetDetails = ({tweetList}) => {
   );
 };
 
-export default TweetDetails;
+export default TweetList;

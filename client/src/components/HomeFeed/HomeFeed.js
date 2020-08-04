@@ -3,9 +3,9 @@ import React from "react";
 import { HomeFeedContext } from "./HomeFeedContext";
 import MainTitle from "../misc/MainTitle";
 import NewTweet from "../Tweet/NewTweet";
-import TweetDetails from "../Tweet/TweetDetails";
+import TweetList from "../Tweet/TweetList";
 import ErrorPage from '../ErrorPage'
-
+import Spinner from '../../assets/Spinner'
 import styled from "styled-components";
 import { BORDER } from "../misc/constant";
 
@@ -20,9 +20,9 @@ const HomeFeed = () => {
       <NewTweet />
       {
         {
-          'loading':'loading',
+          'loading':<Spinner />,
           'error': <ErrorPage />,
-          'idle': <TweetDetails tweetList={tweetList} />
+          'idle': <TweetList tweetList={tweetList} />
         }[status]
       }
 

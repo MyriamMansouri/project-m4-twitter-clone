@@ -13,7 +13,7 @@ import ErrorPage from "./components/ErrorPage";
 import { CurrentUserContext } from "./components/CurrentUserContext";
 import { HomeFeedProvider } from "./components/HomeFeed/HomeFeedContext";
 import { ProfileProvider } from "./components/Profile/ProfileContext";
-import { BigTweetProvider } from "./components/BigTweet/BigTweetContext";
+import Spinner from "./assets/Spinner";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ const App = () => {
     <AppWrapper>
       <Router>
         <Sidebar />
-        {status === "loading" && "loading"}
+        {status === "loading" && <Spinner/>}
         {status === "error" && <ErrorPage />}
         {status === "idle" && (
           <Switch>
@@ -44,10 +44,8 @@ const App = () => {
             <Route exact path="/bookmarks">
               <Bookmarks />
             </Route>
-            <Route exact path="/tweet/:">
-              <BigTweetProvider>
-                <BigTweet />
-              </BigTweetProvider>
+            <Route exact path="/tweet/:tweetId">
+              <BigTweet />
             </Route>
             <Route exact path="/:profileId">
               <ProfileProvider>

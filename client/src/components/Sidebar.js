@@ -48,6 +48,7 @@ const Sidebar = () => {
 
 const SidebarWrapper = styled.aside`
   padding-right: 70px;
+  min-height:100vh;
   font-weight: bold;
   border-right: ${BORDER};
   & > * {
