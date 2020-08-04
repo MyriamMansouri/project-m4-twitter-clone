@@ -14,8 +14,9 @@ const Sidebar = () => {
 
   return (
     <SidebarWrapper>
-      <Logo />
+ 
       <ul>
+        <li><Logo /></li>
         <li>
           <NavigationLink exact to="/">
             <Home />
@@ -46,6 +47,7 @@ const Sidebar = () => {
   );
 };
 
+
 const SidebarWrapper = styled.aside`
   padding-right: 70px;
   min-height:100vh;
@@ -53,6 +55,15 @@ const SidebarWrapper = styled.aside`
   border-right: ${BORDER};
   & > * {
     margin: 20px 0;
+  }
+  
+  @media only screen and (max-width:78px) {
+    ul {
+      display:flex;
+      flex-flow: column nowrap;
+      align-items:center
+    }
+    padding: 0 20px;
   }
 `;
 
@@ -73,6 +84,11 @@ const LinkTitle = styled.span`
   margin-left: 15px;
   &:hover {
     opacity: 1;
+  }
+
+  @media only screen and (max-width:738px) {
+    display:none;
+
   }
 `;
 

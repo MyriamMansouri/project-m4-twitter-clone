@@ -6,9 +6,10 @@ import { bell } from "react-icons-kit/feather/bell";
 import { bookmark } from "react-icons-kit/feather/bookmark";
 import { calendar } from "react-icons-kit/feather/calendar";
 import { mapPin } from "react-icons-kit/feather/mapPin";
-import {arrowLeft} from 'react-icons-kit/feather/arrowLeft'
-import {loader} from 'react-icons-kit/feather/loader'
-import {u1F4A3 as bomb} from 'react-icons-kit/noto_emoji_regular/u1F4A3'
+import { arrowLeft } from "react-icons-kit/feather/arrowLeft";
+import { loader } from "react-icons-kit/feather/loader";
+import { edit } from "react-icons-kit/feather/edit";
+import { u1F4A3 as bomb } from "react-icons-kit/noto_emoji_regular/u1F4A3";
 
 import { ICON } from "../components/misc/constant";
 
@@ -24,9 +25,13 @@ export const Calendar = ({ size = ICON.size }) => (
 export const MapPin = ({ size = ICON.size }) => (
   <Icon size={size} icon={mapPin} />
 );
-export const ArrowLeft = ({ size = ICON.size }) => <Icon size={size} icon={arrowLeft} />;
-export const Loader = ({ size = ICON.size }) => <Icon size={size} icon={loader} />;
-export const Bomb = ({ size = ICON.size }) => (
-  <Icon size={size} icon={bomb} />
+export const ArrowLeft = ({ size = ICON.size }) => (
+  <Icon size={size} icon={arrowLeft} />
 );
-
+export const Loader = ({ size = ICON.size }) => (
+  <Icon size={size} icon={loader} />
+);
+export const Edit = ({ size = ICON.size }) => (
+  <Icon size={size} icon={edit} />
+);
+export const Bomb = ({ size = ICON.size }) => <Icon size={size} icon={bomb} />;

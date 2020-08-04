@@ -3,7 +3,7 @@ import React from "react";
 export const TweetContext = React.createContext(null);
 
 export const TweetProvider = ({ tweet, children }) => {
-console.log(tweet.retweetFrom)
+
   const [numLikes, setNumLikes] = React.useState(tweet.numLikes);
   const [numRetweets, setNumRetweets] = React.useState(tweet.numRetweets);
   const [isLiked, setIsLiked] = React.useState(tweet.isLiked);

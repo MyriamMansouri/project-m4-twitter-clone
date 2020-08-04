@@ -19,7 +19,7 @@ const AppWrapper = styled.div`
   display: flex;
   justify-content: center;
   display: grid;
-  grid-template-columns: 290px minmax(min-content, 580px);
+  grid-template-columns: minmax(100px, 270px) minmax(min-content, 580px);
   margin: 0 auto;
 `;
 

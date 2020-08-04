@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import Header from "./Header";
 import RetweetFrom from "../Tweet/RetweetFrom";
@@ -12,7 +12,7 @@ import MainTitle from "../misc/MainTitle";
 import { ArrowLeft } from "../../assets/Icons";
 import { STYLE, BORDER } from "../misc/constant";
 
-const BigTweetDetails = ({}) => {
+const BigTweetDetails = () => {
   const { status, mediaUrl, retweetFrom } = React.useContext(TweetContext);
 
   return (
@@ -35,11 +35,11 @@ const BigTweetDetails = ({}) => {
   );
 };
 
-const Wrapper=styled.div`
-  min-height:100vh;
-  border-right : ${BORDER};
-`
-const IconWrapper=styled.span`
+const Wrapper = styled.div`
+  min-height: 100vh;
+  border-right: ${BORDER};
+`;
+const IconWrapper = styled.span`
   margin-right: ${STYLE.spacingTweet};
-`
+`;
 export default BigTweetDetails;

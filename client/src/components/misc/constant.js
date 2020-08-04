@@ -9,6 +9,7 @@ export const STYLE = {
     // Grey
     neutral : "hsl(0deg, 0%, 40%)", // light grey
     neutralLight : "hsl(0deg, 0%, 90%)", 
+    neutralLighter : "hsl(0deg, 0%, 98%)",
     // Error
     errorColor: 'red',
 

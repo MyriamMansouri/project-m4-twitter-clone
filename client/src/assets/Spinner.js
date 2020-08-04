@@ -17,6 +17,7 @@ const Rotate = styled.div`
   display: inline-block;
   width: 23px;
   height: 23px;
+  color:red;
   animation: ${rotate} 2s linear infinite;
 `;
 
